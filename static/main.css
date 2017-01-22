@@ -22,9 +22,9 @@ html, body {
 	padding: 10px;
 	border: solid;
 	border-radius: 10px;
-	position:fixed;
+	/*position:fixed;*/
 	z-index: 9999;
-	opacity: 1;
+	/*opacity: 1;*/
 	background-color: #547698;
 	box-shadow: 0px -1px 7px grey;
 }
@@ -129,8 +129,8 @@ html, body {
 	background-color: green;
 }
 .more{
-	font-size:30px;
-	margin-left: 90%;
+	font-size:25;
+	margin-left: 75%;
 	margin-top: 60%;
     color: #2ecc71;
 
@@ -141,8 +141,8 @@ html, body {
 }
 
 .auth{
-	font-size:30px;
-	margin-left: 90%;
+	font-size:25px;
+	margin-left: 75%;
 	margin-top: 45%;
 	color: #2ecc71;
 }
