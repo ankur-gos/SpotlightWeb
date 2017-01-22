@@ -13,6 +13,8 @@ html, body {
 	margin: 0px;
 	width: 100%;
 	padding: 0px;
+	
+	background-color: #2c3e50;
 }
 
 .currentSong{
@@ -23,7 +25,8 @@ html, body {
 	position:fixed;
 	z-index: 9999;
 	opacity: 1;
-	background-color: orange;
+	background-color: #547698;
+	box-shadow: 0px -1px 7px grey;
 }
 
 .songList li{
@@ -88,14 +91,17 @@ html, body {
 	font-family: 'Lato', sans-serif;
 	font-style: bold;
 	font-size: xx-large;
+	color:white;
 }
 .CurArtist{
 	font-family: 'Comfortaa', cursive;
 	font-size:large;
+	color:white;
 }
 .CurAlbum{
 	font-family: 'Comfortaa', cursive;
 	font-size: large;
+	color:white;
 }
 .icon{
 	margin: 0 auto;
@@ -126,7 +132,8 @@ html, body {
 	font-size:20px;
 	margin-left: 90%;
 	margin-top: 60%;
-    /*background-color: black;*/
+    color: #2ecc71;
+
 }
 .morecont{
 	/*background-color: black;*/
@@ -136,6 +143,12 @@ html, body {
 		font-size:20px;
 		margin-left: 90%;
 		margin-top: 60%;
+		color: #2ecc71;
+	}
+	.auth{
+		font-size:20px;
+		margin-left: 90%;
+		color: #2ecc71;
 	}
 	.whole{
 		margin-top:20%;
@@ -144,3 +157,7 @@ html, body {
 .more:active{
 	color:white;
 }
+.auth:active{
+	color:white;
+}
+

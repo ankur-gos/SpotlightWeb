@@ -1,60 +1,52 @@
 var mainApp = angular.module('mainApp', []);
 
-var fakeJson = {
-  "songs": [
-    {
-      "Name": "Alfreds Futterkiste",
-      "Artist": "Berlin",
-      "Album": "Germany",
-      "Art": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/First_abstract_watercolor_kandinsky_1910.jpg/300px-First_abstract_watercolor_kandinsky_1910.jpg",
-      "Vote": 5,
-    },
-    {
-      "Name": "Com\u00e9rcio Mineiro",
-      "Artist": "S\u00e3o Paulo",
-      "Album": "Brazil",
-      "Art" : "https://s-media-cache-ak0.pinimg.com/736x/4b/8e/d1/4b8ed1d0e27433cefc37d344a3bdba02.jpg",
-      "Vote": 3,
-    },
-    {
-      "Name": "Com\u00e9rcio Mineiro",
-      "Artist": "S\u00e3o Paulo",
-      "Album": "Brazil",
-      "Art" : "https://s-media-cache-ak0.pinimg.com/736x/4b/8e/d1/4b8ed1d0e27433cefc37d344a3bdba02.jpg",
-      "Vote": 25,
-    },
-    {
-      "Name": "Com\u00e9rcio Mineiro",
-      "Artist": "S\u00e3o Paulo",
-      "Album": "Brazil",
-      "Art" : "https://s-media-cache-ak0.pinimg.com/736x/4b/8e/d1/4b8ed1d0e27433cefc37d344a3bdba02.jpg",
-      "Vote": 123,
-    },
-    {
-      "Name": "Com\u00e9rcio Mineiro",
-      "Artist": "S\u00e3o Paulo",
-      "Album": "Brazil",
-      "Art" : "https://s-media-cache-ak0.pinimg.com/736x/4b/8e/d1/4b8ed1d0e27433cefc37d344a3bdba02.jpg",
-      "Vote": 40,
-    }
-  ]
-}
 
 mainApp.controller('appController', ['$scope', '$http' , function ($scope, $http) {
 
-$scope.curSong = {
-	"Name": "My song",
-	"Artist": "Raul",
-	"Album": "Album",
-	"Art": "http://www.abstractartistgallery.org/wp-content/uploads/2013/03/Abstract-Art-Painting-Tadeusz-Machowski-1.jpg"	
-}
-	// $http.get("http://www.w3schools.com/angular/customers.php").then(function(response){
-	// 	$scope.networkList = response.data.records;
-	// });
+$http.get("http://spotlightweb.herokuapp.com/playlist").then(function(response){
+  $scope.CurrentSong = response.data.currentSong;
+  $scope.playlist = response.data.playlist;
 
-	$scope.list1 = fakeJson.songs;
+  $scope.curSong = {
+    "Name": $scope.CurrentSong.name,
+    "Artist": $scope.CurrentSong.artist,
+    "Vote": $scope.CurrentSong.voteCnt,
+    "Art": "http://www.abstractartistgallery.org/wp-content/uploads/2013/03/Abstract-Art-Painting-Tadeusz-Machowski-1.jpg"  
+  }
+});
+
+$scope.canVote = true;
+
+$scope.getVote = function(id){
+
+  if($scope.canVote == true){
+    $http.post("http://spotlightweb.herokuapp.com/vote?songId="+ id).then(function(response){
+      $scope.playlist = response.data.playlist;
+      $scope.canVote = false;
+    });
+  }else if($scope.canVote == false){
+    if($scope.CurrentSong.id != id){
+      $scope.canVote = true;
+    }
+  }
+}
+
+$scope.getAuth = function(){
+  $http.get("https://accounts.spotify.com/authorize/?client_id=f4013c48969645179f4f32a94e4b69ae&response_type=code&redirect_uri=https%3A%2F%2Fspotlightweb.herokuapp.com%2Fauth")
+  .then(function(response){
+
+  });
+}
+
 }]);
+
 
 mainApp.config(function($interpolateProvider) {
         $interpolateProvider.startSymbol('{a').endSymbol('a}');
     });
+
+mainApp.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+]);
