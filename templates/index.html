@@ -13,37 +13,33 @@
 		<link href="https://fonts.googleapis.com/css?family=Comfortaa|Josefin+Sans|Josefin+Slab|Lato:300|Play|Varela+Round|Yellowtail" rel="stylesheet">
 		
 		
-		<!-- <script src="../static/script.js"></script>
-		<link rel = "stylesheet" href = "../static/main.css" > -->
-		
+		<script src="../static/script.js"></script>
+		<link rel = "stylesheet" href = "../static/main.css" >
+		<!-- 
 		
 		
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }} ">
-		<script type="text/javascript"  src="{{ url_for('static', filename='script.js') }}"></script>
+		<script type="text/javascript"  src="{{ url_for('static', filename='script.js') }}"></script> -->
 		
 	</head>
 
 	<body ng-app = "mainApp">
 		<div ng-controller = "appController">
 			<div class = "container-fluid" ng-init="init()">
+					<a class = "color" href="https://accounts.spotify.com/authorize/?client_id=f4013c48969645179f4f32a94e4b69ae&response_type=code&redirect_uri=https%3A%2F%2Fspotlightweb.herokuapp.com%2Fauth" target= "blank">
+						<i style = "cursor: pointer" class = "glyphicon glyphicon-user "></i>
+					</a>
 				<div class="row currentSong">
-					<img class="col-sm-3 col-xs-8 col-xs-offset-2 col-sm-offset-0 " ng-src = "{a curSong.Art a}" />
-					<div class = "col-sm-3 col-xs-12 ">
+					<img class="col-sm-4 col-xs-8 col-xs-offset-2 col-sm-offset-0 " ng-src = "{a curSong.Art a}" />
+					<div class = "col-sm-4 col-xs-12 ">
 						<div class = "CurName">{a curSong.Name a}</div>
 						<div class = "CurArtist">{a curSong.Artist a}</div>
 						<div class = "CurAlbum">{a curSong.Album a}</div>
 					</div> 
-					<div class = "col-sm-3 col-xs-10 ">
-						
-					</div>
-					<div class = "col-sm-3 col-xs-2 morecont">
+					<div class = "col-sm-4 col-xs-2 morecont">
 						<!-- <i style = "cursor: pointer" class = "glyphicon glyphicon-user auth"></i> -->
-						<a  href="https://accounts.spotify.com/authorize/?client_id=f4013c48969645179f4f32a94e4b69ae&response_type=code&redirect_uri=https%3A%2F%2Fspotlightweb.herokuapp.com%2Fauth" target= "blank">
-						<i style = "cursor: pointer" class = "glyphicon glyphicon-user auth"></i>
-						</a>
-
-
 						<i style = "cursor:pointer" class = "glyphicon glyphicon-menu-hamburger more" data-toggle="collapse" href="#collapse"></i>
+						
 					</div>
 				</div>				
 				<!-- <div class = "whole"> -->
@@ -51,14 +47,11 @@
 					<ul class = "list-group">
 						<li class="list-group-item listRow" ng-repeat = "item in playlist | orderBy:'-voteCnt'">
 							<div class="row">				
-								<img class = " col-sm-2 col-xs-5 listImage" ng-src="http://www.abstractartistgallery.org/wp-content/uploads/2013/03/Abstract-Art-Painting-Tadeusz-Machowski-1.jpg"/>				
+								<img class = " col-sm-2 col-xs-5 listImage" ng-src="{a item.imageURL a}"/>				
 								<div class = "col-sm-8 col-xs-3 ">
 									<div class="SongName">
 										{a item.name a} - {a item.artist a}
-									</div>
-									<div class ="Vote">
-										{a item.voteCnt a}
-									</div>									
+									</div>				
 								</div>
 	 							<div class = "col-sm-2 col-xs-4 color2">
 

@@ -3,18 +3,27 @@ var mainApp = angular.module('mainApp', []);
 
 mainApp.controller('appController', ['$scope', '$http' , function ($scope, $http) {
 
-$http.get("https://spotlightweb.herokuapp.com/playlist").then(function(response){
-  $scope.CurrentSong = response.data.currentSong;
-  $scope.playlist = response.data.playlist;
-  $scope.playlist.Art = "http://www.abstractartistgallery.org/wp-content/uploads/2013/03/Abstract-Art-Painting-Tadeusz-Machowski-1.jpg";
-  $scope.curSong = {
-    "Name": $scope.CurrentSong.name,
-    "Artist": $scope.CurrentSong.artist,
-    "Vote": $scope.CurrentSong.voteCnt,
-    "Art": "http://www.abstractartistgallery.org/wp-content/uploads/2013/03/Abstract-Art-Painting-Tadeusz-Machowski-1.jpg"  
-  }
-});
 
+
+$scope.refresh = function(){
+  $http.get("https://spotlightweb.herokuapp.com/playlist").then(function(response){
+    console.log(response);
+    $scope.CurrentSong = response.data.currentSong;
+    $scope.playlist = response.data.playlist;
+    $scope.curSong = {
+      "Name": $scope.CurrentSong.name,
+      "Artist": $scope.CurrentSong.artist,
+      "Vote": $scope.CurrentSong.voteCnt,
+      "Art": $scope.CurrentSong.imageURL,  
+    }
+    
+  });
+  console.log("hi");
+
+}
+setInterval(function(){
+  $scope.refresh();
+}, 5000)
 $scope.canVote = true;
 
 $scope.getVote = function(id){
