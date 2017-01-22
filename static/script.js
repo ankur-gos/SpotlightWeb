@@ -3,7 +3,7 @@ var mainApp = angular.module('mainApp', []);
 
 mainApp.controller('appController', ['$scope', '$http' , function ($scope, $http) {
 
-$http.get("http://spotlightweb.herokuapp.com/playlist").then(function(response){
+$http.get("https://spotlightweb.herokuapp.com/playlist").then(function(response){
   $scope.CurrentSong = response.data.currentSong;
   $scope.playlist = response.data.playlist;
 
@@ -20,7 +20,7 @@ $scope.canVote = true;
 $scope.getVote = function(id){
 
   if($scope.canVote == true){
-    $http.post("http://spotlightweb.herokuapp.com/vote?songId="+ id).then(function(response){
+    $http.post("https://spotlightweb.herokuapp.com/vote?songId="+ id).then(function(response){
       $scope.playlist = response.data.playlist;
       $scope.canVote = false;
     });
