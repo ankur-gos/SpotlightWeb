@@ -18,7 +18,7 @@ html, body {
 }
 
 .currentSong{
-	margin: 0px 5px 5px 1px;
+	margin: 2%;
 	padding: 10px;
 	border: solid;
 	border-radius: 10px;
@@ -41,14 +41,10 @@ html, body {
 	margin:auto;
 	align-content: center;
 }
-.listRow{
-	margin:auto;
-	width: 70%;
-}
 
 .listRow{
 	margin: auto;
-	width: 80%;
+	width: 100%;
 }
 
 .fill {
@@ -65,7 +61,7 @@ html, body {
 }
 
 .list-group .list-group-item:hover {
-	background-color: grey;
+	background-color: #B0BEC5;
 }
 
 
@@ -75,31 +71,32 @@ html, body {
 }
 
 .SongName{
-	font-family: 'Lato', sans-serif;
+	font-family: 'Josefin Sans', sans-serif;
 	font-style: bold;
 	font-size: larger;
 }
 .SongArtist{
-	font-family: 'Comfortaa', cursive;
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: large;
 }
 .SongAlbum{
-	font-family: 'Comfortaa', cursive;
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: large;
 }
 .CurName{
-	font-family: 'Lato', sans-serif;
+	font-family: 'Josefin Sans', sans-serif;
 	font-style: bold;
-	font-size: xx-large;
+	font-size: 450%;
 	color:white;
 }
 .CurArtist{
-	font-family: 'Comfortaa', cursive;
-	font-size:large;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size:200%;
+	margin-left:10%;
 	color:white;
 }
 .CurAlbum{
-	font-family: 'Comfortaa', cursive;
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: large;
 	color:white;
 }
@@ -129,7 +126,7 @@ html, body {
 	background-color: green;
 }
 .more{
-	font-size:25;
+	font-size:25px;
 	margin-left: 75%;
 	margin-top: 60%;
     color: #2ecc71;
@@ -143,25 +140,28 @@ html, body {
 .auth{
 	font-size:25px;
 	margin-left: 75%;
-	margin-top: 45%;
 	color: #2ecc71;
 }
 
 @media screen and (min-width:768px){
 	.more{
-		font-size:20px;
-		margin-left: 90%;
+		font-size:50px;
+		margin-left: 75%;
 		margin-top: 60%;
-		color: #2ecc71;
 	}
 	.auth{
-		font-size:20px;
-		margin-left: 90%;
-		color: #2ecc71;
+		font-size:40px;
+		margin-left: 76%;
 	}
 	.whole{
 		margin-top:20%;
 	}
+
+	.listRow{
+		margin: auto;
+		width: 80%;
+	}
+
 }
 .more:active{
 	color:white;

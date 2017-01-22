@@ -6,7 +6,7 @@ mainApp.controller('appController', ['$scope', '$http' , function ($scope, $http
 $http.get("https://spotlightweb.herokuapp.com/playlist").then(function(response){
   $scope.CurrentSong = response.data.currentSong;
   $scope.playlist = response.data.playlist;
-
+  $scope.playlist.Art = "http://www.abstractartistgallery.org/wp-content/uploads/2013/03/Abstract-Art-Painting-Tadeusz-Machowski-1.jpg";
   $scope.curSong = {
     "Name": $scope.CurrentSong.name,
     "Artist": $scope.CurrentSong.artist,
