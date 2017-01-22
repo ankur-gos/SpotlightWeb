@@ -34,7 +34,7 @@ html, body {
 		
 }
 .whole{
-		margin-top:30%;
+		margin-top:55%;
 }
 
 .vote{
@@ -129,7 +129,7 @@ html, body {
 	background-color: green;
 }
 .more{
-	font-size:20px;
+	font-size:30px;
 	margin-left: 90%;
 	margin-top: 60%;
     color: #2ecc71;
@@ -137,7 +137,16 @@ html, body {
 }
 .morecont{
 	/*background-color: black;*/
+	font-size: 
 }
+
+.auth{
+	font-size:30px;
+	margin-left: 90%;
+	margin-top: 45%;
+	color: #2ecc71;
+}
+
 @media screen and (min-width:768px){
 	.more{
 		font-size:20px;
